@@ -1,23 +1,27 @@
 ```mermaid
-usecaseDiagram
-    actor Vehicle as V
-    actor FleetManager as FM
-    actor Driver as D
-    actor App as APP
+flowchart TB
 
-    rectangle "Vehicle Telemetry Platform" {
-        usecase "Send Telemetry" as UC1
-        usecase "Ingest Telemetry" as UC2
-        usecase "Process Stream" as UC3
-        usecase "Store Raw Telemetry" as UC4
-        usecase "Perform Geofence Check" as UC5
-        usecase "Trigger Alerts" as UC6
-        usecase "Compute Trip Summary" as UC7
-        usecase "Manage Fleet Data" as UC8
-        usecase "View Dashboard" as UC9
-        usecase "Receive Real-Time Updates" as UC10
-    }
+    %% Actors
+    V([Vehicle])
+    FM([Fleet Manager])
+    D([Driver])
+    APP([App])
 
+    %% System Boundary
+    subgraph VTP[Vehicle Telemetry Platform]
+        UC1([Send Telemetry])
+        UC2([Ingest Telemetry])
+        UC3([Process Stream])
+        UC4([Store Raw Telemetry])
+        UC5([Perform Geofence Check])
+        UC6([Trigger Alerts])
+        UC7([Compute Trip Summary])
+        UC8([Manage Fleet Data])
+        UC9([View Dashboard])
+        UC10([Receive Real-Time Updates])
+    end
+
+    %% Interactions
     V --> UC1
     UC1 --> UC2
     UC2 --> UC3
@@ -29,3 +33,4 @@ usecaseDiagram
     FM --> UC8
     APP --> UC9
     APP --> UC10
+```
