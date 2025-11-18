@@ -34,7 +34,7 @@ flowchart TB
     APP --> UC9
     APP --> UC10
 ```
-```
+```mermaid
 sequenceDiagram
     autonumber
 
@@ -52,4 +52,4 @@ sequenceDiagram
     Cognito-->>APIGW: 5. Token Verified
 
     APIGW->>Lambda: 6. Forward request<br/>+ user context +
-
+```
